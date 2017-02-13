@@ -3,7 +3,7 @@ package com.user.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.user.model.LoginMapper;
+import com.user.dao.LoginMapper;
 import com.user.model.User;
 
 @Service
