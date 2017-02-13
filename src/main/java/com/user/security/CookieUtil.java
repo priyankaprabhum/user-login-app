@@ -8,7 +8,7 @@ import org.springframework.web.util.WebUtils;
 
 public class CookieUtil {
 	public static void create(HttpServletResponse httpServletResponse, String name, String value, Boolean secure,
-			Integer maxAge, String domain) {
+			Integer maxAge, String domain, String firstName, String lastName) {
 		Cookie cookie = new Cookie(name, value);
 		cookie.setSecure(secure);
 		cookie.setHttpOnly(true);
@@ -16,6 +16,22 @@ public class CookieUtil {
 		cookie.setDomain(domain);
 		cookie.setPath("/");
 		httpServletResponse.addCookie(cookie);
+
+		Cookie firstNameCookie = new Cookie("first_name", firstName);
+		cookie.setSecure(secure);
+		cookie.setHttpOnly(true);
+		cookie.setMaxAge(maxAge);
+		cookie.setDomain(domain);
+		cookie.setPath("/");
+		httpServletResponse.addCookie(firstNameCookie);
+
+		Cookie lastNameCookie = new Cookie("last_name", lastName);
+		cookie.setSecure(secure);
+		cookie.setHttpOnly(true);
+		cookie.setMaxAge(maxAge);
+		cookie.setDomain(domain);
+		cookie.setPath("/");
+		httpServletResponse.addCookie(lastNameCookie);
 	}
 
 	public static void clear(HttpServletResponse httpServletResponse, String name) {
